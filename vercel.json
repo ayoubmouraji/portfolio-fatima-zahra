@@ -1,0 +1,4 @@
+{
+  "buildCommand": "rm -rf node_modules && npm install && npm rebuild esbuild && chmod +x node_modules/.bin/vite && npm run build",
+  "outputDirectory": "dist"
+}
