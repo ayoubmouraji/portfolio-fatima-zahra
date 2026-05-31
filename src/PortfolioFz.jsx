@@ -155,6 +155,36 @@ const PROJETS = [
     resultats: "",
     liens: [{ label: "Présentation", href: "#" }],
   },
+  {
+    id: "gestionpersonnel",
+    titre: "C# : Application de bureau 'GestionPersonnel' (Architecture MVC)",
+    cover: "linear-gradient(135deg,#0ea5e933,#d946ef33)",
+    contexte:
+      "Dans le cadre de ma formation en BTS SIO (option SLAM), j'ai développé une application de bureau en C# dédiée à la gestion des ressources humaines. La mission consistait à concevoir un outil sécurisé permettant de gérer les membres du personnel ainsi que le suivi de leurs absences. Pour assurer la robustesse de l'application, j'ai implémenté une architecture MVC découplée grâce à une couche d'accès aux données spécifique (dal et bddmanager). Ce projet intègre des notions clés de cybersécurité (hachage et contrôle de la force des mots de passe), une démarche de qualité logicielle avec SonarQube, ainsi que la mise en place de tests unitaires et d'intégration.",
+    objectifs: [
+      "Authentification sécurisée avec contrôle de la force des mots de passe",
+      "Gestion complète des membres du personnel et de leurs profils (CRUD)",
+      "Suivi et enregistrement rigoureux des absences",
+      "Séparation stricte des responsabilités via l'architecture MVC"
+    ],
+    technos: ["C#", "Visual Studio", "MySQL", "Architecture MVC", "SonarQube"],
+    competences: [
+      "Mettre à disposition une application",
+      "Sécuriser services et données",
+      "Documenter & capitaliser",
+      "Traiter un incident"
+    ],
+    livrables: [
+      "Dépôt distant GitHub (historique des commits)",
+      "Script SQL de la base de données (habilitations.sql)",
+      "Fichier README.md documenté technique et utilisateur"
+    ],
+    resultats: "Application fonctionnelle et sécurisée, code analysé et validé par SonarQube.",
+    videoUrl: "/demo_gestion_personnel.mp4", // Ta vidéo dans le dossier public
+    liens: [
+      { label: "Repo GitHub", href: "https://github.com/tahaamaraghad-dev/GestionPersonnel" }
+    ]
+  },
 ];
 
 const DIPLOMES = [
@@ -631,7 +661,19 @@ export default function PortfolioFZ() {
                             <a key={lnk.href} href={lnk.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 underline text-sm"><LinkIcon className="w-4 h-4"/> {lnk.label}</a>
                           ))}
                         </div>
-                      )}
+                                                  )}
+                                                  {/* AJOUT DU LECTEUR VIDÉO DYNAMIQUE */}
+                            {p.videoUrl && (
+                              <div className="mt-4">
+                                <h4 className="font-semibold text-sm mb-2 text-cyan-300">🎥 Démonstration Vidéo</h4>
+                                <div className="aspect-video w-full bg-slate-950 rounded-xl overflow-hidden border border-white/10 shadow-inner">
+                                  <video controls className="w-full h-full">
+                                    <source src={p.videoUrl} type="video/mp4" />
+                                    Votre navigateur ne supporte pas la lecture de cette vidéo.
+                                  </video>
+                                </div>
+                              </div>
+                            )}                      
                     </div>
                   );
                 })()}
